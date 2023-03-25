@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="/static/bootstrapLumen.css" rel="stylesheet">
+
+        <title>Spelling Sloth</title>
+    </head>
+
+    <body onload="changeImage()">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="justify-content: center;" href="/">Spelling Sloth</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor03">
+            {% if session["user_id"] %}
+            <ul class="navbar-nav me-auto">
+              <li class="nav-link active">
+                <a class="nav-link" href="/stickers">Stickers
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-link active">
+                <a class="nav-link" href="/spelling">Spelling Sloth</a>
+              </li>
+              <li class="nav-link active">
+                <a class="nav-link" href="/timestables">Monkey Maths</a>
+              </li>
+              <li class="nav-item dropdown">
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-link active"><a class="nav-link" href="/welcome">Welcome, {{ session["username"] }}</a></li>
+                <li class="nav-link active"><a class="nav-link" href="/logout">Log Out</a></li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-link active"><a class="nav-link" href="/registration">Register</a></li>
+                <li class="nav-link active"><a class="nav-link" href="/login">Log In</a></li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+      <br>
+        <h1 style="text-align:center; font-family: Fantasy,Papyrxus;">Spelling</h1>
+        <br>
+        <div style="text-align: center;">
+          <p >
+              <form action="/spelling" method="post">
+
+                  <button class="btn btn-primary" name="submit" type="submit" value="three" style="text-align:center; font-family: Fantasy,Papyrxus;">Three Letter Words</button>
+                  <button class="btn btn-secondary" name="submit" type="submit" value="four" style="text-align:center; font-family: Fantasy,Papyrxus;">Four Letter Words</button>
+                  <button class="btn btn-success"name="submit" type="submit" value="five" style="text-align:center; font-family: Fantasy,Papyrxus;">Five Letter Words</button>
+                  <button class="btn btn-info" name="submit" type="submit" value="six" style="text-align:center; font-family: Fantasy,Papyrxus;">Six Letter Words</button>
+
+                  <button class="btn btn-warning" name="submit" type="submit" value="seven" style="text-align:center; font-family: Fantasy,Papyrxus;">Seven Letter Words</button>
+                  <button class="btn btn-danger" name="submit" type="submit" value="eight" style="text-align:center; font-family: Fantasy,Papyrxus;">Eight Letter Words</button>
+                  <button class="btn btn-light" name="submit" type="submit" value="nine" style="text-align:center; font-family: Fantasy,Papyrxus;">Nine Letter Words</button>
+                  <button class="btn btn-dark" name="submit" type="submit" value="ten" style="text-align:center; font-family: Fantasy,Papyrxus;">Ten+ Letter Words</button>
+
+                </form>
+          </p>
+          <p style="text-align:center; font-family: Fantasy,Papyrxus; font-size: larger;">
+            Definition: {{ definition }} 
+          </p>
+          <p style="text-align:center; font-family: Fantasy,Papyrxus;">
+            Click Play to hear the Word {{ word }}
+          </p>
+          <p>
+            <audio controls>
+              <source src="{{ audio }}" type="audio/mp3">
+            </audio>
+          </p>
+          <p>
+            <form action="/spelling" method="post" id="myForm">
+              <input name="spell" type="text" placeholder="Spell the Word" autocomplete="off" autofocus> 
+            </form>
+            <br>
+            <button id="BUTTON" type="submit" form="myForm" onclick="changeImage(this)" class="btn btn-light" style="text-align:center; font-family: Fantasy,Papyrxus;">Spell!</button>
+            <br><br><br>
+            <div>
+                <button id="CRAP" type="button" class="btn btn-primary btn-lg" style="text-align:center; font-family: Fantasy,Papyrxus;" onmousedown="party.confetti(this)">Give it a go!</button>
+            </div>
+            <div><img src="static/images/slothy.png" width="30%" height="auto"></dv>
+          </div>
+        </div>
+          </div>
+          <div>
+          <script>
+            function changeImage() {
+              if ("{{ check }}" == "wrong") {
+                document.getElementById("CRAP").className = "btn btn-danger btn-lg"
+                document.getElementById("CRAP").innerHTML = 'Oops, that is not right. Have another go';
+              }
+              else if ("{{ check }}" == "correct") {
+                
+                        console.log("POPSILCLES");
+                        document.getElementById("CRAP").className = "btn btn-success btn-lg"
+                        document.getElementById("CRAP").innerHTML = 'Well done, that is correct!';
+                        part.confetti(this);                      
+                    }
+                    else {
+                      document.getElementById("CRAP").className = "btn btn-primary btn-lg"
+                      document.getElementById("CRAP").innerHTML = 'Give it a go!';
+                    }
+                }
+            </script> 
+            <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+
+        </p>

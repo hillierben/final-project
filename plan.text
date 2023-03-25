@@ -1,0 +1,46 @@
+Final Project: Website Maths/English for Kids
+Aimed at years 3-4 
+
+
+Spelling Resources: 
+Page 16 - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/239784/English_Appendix_1_-_Spelling.pdf
+
+
+
+Home Page/stickers
+- “Welcome {{ name }} You have earned {{ points }} points!
+- Number of points tracker
+- Number of stickers earned
+    - Board with all the stickers eg, “12x Table Sticker”
+- Targets - Set how many points you want to get
+    - Different stickers for different point values.
+    - Targets to earn a sticker
+- Stickers:
+    - Maths: 2x, 3x, 4x, 5x, 6x, 7x, 8x, 9x, 10x, 11x, 12x - 12 exercises for each timestable
+    - Spelling: 3, 4, 5, 6, 7, 8, 9, 10 letters long
+
+Registration Page
+- Username
+- Email
+- Password
+- Password Confirmation
+
+Login Page
+- Username
+- Password
+
+Maths Timetable Page
+- Buttons: 2x 3x 4x 5x……..12x
+- Questions - randomly generated
+- Answer box
+- Rewarding sounds
+- Rewarding graphics
+
+English Spelling Page
+- Buttons: Choices of Word Length
+- API dictionary - randomly generated word
+- Audio Voice, stating the word
+- Dictionary definition of the word
+- Spelling Text box to type in the word 
+
+

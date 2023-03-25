@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="/static/bootstrapLumen.css" rel="stylesheet">
+        
+
+        <title>Spelling Sloth</title>
+    </head>
+
+    <body><nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="justify-content: center;" href="/">Spelling Sloth</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor03">
+            {% if session["user_id"] %}
+            <ul class="navbar-nav me-auto">
+              <li class="nav-link active">
+                <a class="nav-link" href="/stickers">Stickers
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-link active">
+                <a class="nav-link" href="/spelling">Spelling Sloth</a>
+              </li>
+              <li class="nav-link active">
+                <a class="nav-link" href="/timestables">Monkey Maths</a>
+              </li>
+              <li class="nav-item dropdown">
+              </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-link active"><a class="nav-link" href="/welcome">Welcome, {{ session["username"] }}</a></li>
+                <li class="nav-link active"><a class="nav-link" href="/logout">Log Out</a></li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ms-auto mt-2">
+                <li class="nav-link active"><a class="nav-link" href="/registration">Register</a></li>
+                <li class="nav-link active"><a class="nav-link" href="/login">Log In</a></li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+        {% block body %}{% endblock %} 
+        <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    </body>
+</html>
+
+
