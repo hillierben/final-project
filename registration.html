@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %} 
+
+<br>
+
+<h1 style="text-align:center">Register</h1>
+<br>
+
+<form action="/registration", method="post" style="text-align:center;">
+    <input name="username" type="text" autofocus autocomplete="off" placeholder="Name">
+    <select name="age" required>
+        <option selected value="not">Age</option>
+        <option>Under 3</option>
+        <option>3-4 yrs</option>
+        <option>5-6 yrs</option>
+        <option>7-8 yrs</option>
+        <option>9-10yrs</option>
+        <option>Over 10</option>
+    </select>
+    <br>
+    <br>
+    <div>
+      <input name="password" type="password"  autocomplete="off" placeholder="Password">
+      <input name="confirmation" type="password" autocapitalize="off" placeholder="Confirm Password" autocomplete="off">
+      <button name="register" type="submit">Register</button>
+    </div>
+</form>
+
+
+
+{% endblock %} 
